@@ -1,16 +1,31 @@
+'use client';
+
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import SalaryCalculator from '@/components/sections/SalaryCalculator';
+import { useScrollAnimation, useCounterAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Home() {
+  // Animation refs
+  const heroRef = useScrollAnimation('slideUp');
+  const valuePropRef = useScrollAnimation('stagger');
+  const industriesRef = useScrollAnimation('stagger');
+  const pricingRef = useScrollAnimation('stagger');
+  const ctaRef = useScrollAnimation('fadeIn');
+
+  // Counter refs for stats
+  const counter7Ref = useCounterAnimation(7, 1.5);
+  const counter14Ref = useCounterAnimation(14, 1.5);
+  const counter90Ref = useCounterAnimation(90, 1.5);
+
   return (
     <>
       <Header />
       <main className="min-h-screen bg-alpine-white">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 max-w-container">
-        <div className="text-center space-y-8">
+        <div ref={heroRef} className="text-center space-y-8">
           {/* Logo Placeholder */}
           <div className="w-24 h-24 mx-auto bg-swiss-graphite rounded-lg flex items-center justify-center">
             <span className="text-alpine-white text-4xl font-bold">H</span>
@@ -43,17 +58,17 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-5xl md:text-6xl font-bold text-blue-400">7</div>
+              <div ref={counter7Ref} className="text-5xl md:text-6xl font-bold text-blue-400">7</div>
               <div className="text-xl">Days</div>
               <div className="text-gray-400">Shortlist Delivered</div>
             </div>
             <div className="space-y-2">
-              <div className="text-5xl md:text-6xl font-bold text-blue-400">14</div>
+              <div ref={counter14Ref} className="text-5xl md:text-6xl font-bold text-blue-400">14</div>
               <div className="text-xl">Days</div>
               <div className="text-gray-400">Placement Completed</div>
             </div>
             <div className="space-y-2">
-              <div className="text-5xl md:text-6xl font-bold text-blue-400">90</div>
+              <div ref={counter90Ref} className="text-5xl md:text-6xl font-bold text-blue-400">90</div>
               <div className="text-xl">Days</div>
               <div className="text-gray-400">Replacement Warranty</div>
             </div>
@@ -66,7 +81,7 @@ export default function Home() {
         <h2 className="text-4xl md:text-5xl text-swiss-graphite font-bold text-center mb-16">
           Why Choose Helvetiq Search
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div ref={valuePropRef} className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
             {
               title: 'Precision',
@@ -95,7 +110,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl text-swiss-graphite font-bold text-center mb-16">
             Industries We Serve
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div ref={industriesRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               'Engineering & Manufacturing',
               'Finance & Banking',
@@ -126,7 +141,7 @@ export default function Home() {
         <p className="text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">
           No hidden costs. No surprises. Just clear, upfront pricing.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
+        <div ref={pricingRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
           {[
             { range: 'CHF 50-80K', fee: '18%' },
             { range: 'CHF 80-120K', fee: '20%' },
@@ -147,15 +162,17 @@ export default function Home() {
       {/* Final CTA */}
       <section className="bg-blue-900 text-alpine-white py-24">
         <div className="container mx-auto px-4 max-w-container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Schedule a Discovery Call
-          </h2>
-          <p className="text-2xl mb-12 max-w-2xl mx-auto opacity-90">
-            Let's discuss your hiring needs and how we can deliver Swiss-standard results.
-          </p>
-          <Button variant="secondary" size="lg">
-            Book Your Consultation
-          </Button>
+          <div ref={ctaRef}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              Schedule a Discovery Call
+            </h2>
+            <p className="text-2xl mb-12 max-w-2xl mx-auto opacity-90">
+              Let\'s discuss your hiring needs and how we can deliver Swiss-standard results.
+            </p>
+            <Button variant="secondary" size="lg">
+              Book Your Consultation
+            </Button>
+          </div>
         </div>
       </section>
     </main>
