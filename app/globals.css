@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Swiss Design System - Helvetiq Search */
+:root {
+  --background: #ffffff;
+  --foreground: #1E1F21;
+  --swiss-graphite: #1E1F21;
+  --alpine-white: #FFFFFF;
+  --frost-silver: #D8DBDE;
+  --alpine-blue: #003D73;
+  --accent-red: #C40019;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1E1F21;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Swiss Design Principles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color - Alpine Blue */
+::selection {
+  background-color: var(--alpine-blue);
+  color: var(--alpine-white);
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--alpine-blue);
+  outline-offset: 2px;
+}
