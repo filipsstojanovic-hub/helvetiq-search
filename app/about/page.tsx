@@ -22,7 +22,7 @@ export default function About() {
     },
     {
       title: 'Long-Term Focus',
-      description: 'We don't just fill roles—we build lasting partnerships. Our 90-day warranty reflects our commitment to sustainable placements.',
+      description: 'We don\'t just fill roles—we build lasting partnerships. Our 90-day warranty reflects our commitment to sustainable placements.',
       icon: '🌱',
     },
   ];

@@ -229,7 +229,7 @@ export default function Pricing() {
               {[
                 {
                   q: 'When is payment due?',
-                  a: 'Payment is due within 30 days of the candidate's start date. We offer flexible payment terms for bulk hiring projects.',
+                  a: 'Payment is due within 30 days of the candidate\'s start date. We offer flexible payment terms for bulk hiring projects.',
                 },
                 {
                   q: 'Are there any upfront fees?',

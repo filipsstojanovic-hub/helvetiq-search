@@ -272,7 +272,7 @@ export default function Contact() {
                 },
                 {
                   title: '90-Day Warranty',
-                  description: 'Free replacement if the candidate doesn't work out in the first quarter.',
+                  description: 'Free replacement if the candidate doesn\'t work out in the first quarter.',
                 },
                 {
                   title: 'Transparent Pricing',
